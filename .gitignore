@@ -18,3 +18,6 @@
 
 # chat-spaceの投稿イメージを保存するフォルダ
 public/uploads/*
+
+# Macフォルダ設定ファイルのため除外
+.DS_Store
