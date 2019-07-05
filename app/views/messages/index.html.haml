@@ -30,10 +30,10 @@
       - (1..10).each do | i |
         =render "messages"
     .form
-      %form{:action => "/", :class => "new-message", :method => "post" }
+      %form{action:"/", class:"new-message", method:"post" }
         .input-box
-          %input{:placeholder => "type a message", :class => "input-box__text", :type => "text", :name => "message[content]"}
+          %input{placeholder:"type a message", class:"input-box__text", type:"text", name:"message[content]"}
           %label.input-box__image{for: "upload-icon"}
             = fa_icon 'image'
-            %input{ :type => "file", id: "upload-icon", :class => "input-box__file" }
-        %input{:type => "submit", :name => "commit", :value => "send",:class => "submit-btn"}
+            %input{type:"file", id:"upload-icon", class:"input-box__file" }
+        %input{type:"submit", name:"commit", value:"send",class:"submit-btn"}
