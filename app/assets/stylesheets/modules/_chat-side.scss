@@ -1,0 +1,62 @@
+@mixin link-format {
+  color:$white-color;
+  text-decoration: none;
+}
+
+.chat-side{
+  float:left;
+  width:300px;
+  .side-header {
+    display:flex;
+    align-items:center;
+    height:100px;
+    padding:0 20px;
+    background-color:$side-header-bkcolor;
+    &__box{
+      display:flex;
+      justify-content:space-between;
+      width:100%;
+      &__user-name{
+        color:$white-color;
+        font-size:16px;
+        font-weight:bold;
+      }
+      &__menu{
+        display:flex;
+        &__new-group{
+          margin-left:0.3rem;
+          a{
+            @include link-format;
+          }
+        }
+        &__edit-user{
+          margin-left:0.3rem;
+          a {
+            @include link-format;
+          }
+        }
+      }
+    }
+  }
+  .groups{
+    overflow:auto;
+    height:calc(100vh - 100px);
+    padding:20px 20px 0;
+    background-color:$groups-bkcolor;
+    a{
+      @include link-format;
+    }
+    .group{
+      margin-bottom:40px;
+      &__group-name{
+        margin-bottom:5px;
+        font-size:15px;
+        font-weight:bold;
+      }
+      &__latest-massage{
+        font-size:11px;
+        font-weight:bold;
+      }
+    }
+  }
+}

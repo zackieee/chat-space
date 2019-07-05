@@ -1,0 +1,10 @@
+*{
+  box-sizing: border-box;
+}
+
+//TODO:不要な横スクロールが出るためにoverflow-xを記述。
+//     flash-boxを表示しているためのもの。最終的に削除が必要かも。
+html{
+  overflow-x:hidden;
+  width:100vw;
+}
