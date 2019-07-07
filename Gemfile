@@ -57,3 +57,10 @@ gem 'haml-rails'
 
 # アイコン表示用
 gem "font-awesome-rails"
+
+# 認証管理用
+gem 'devise'
+
+# 画像アップロード用
+gem 'carrierwave'
+gem 'mini_magick'
