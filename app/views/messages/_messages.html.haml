@@ -1,5 +1,11 @@
-.message
-  .message__upper-info
-    %p.message__upper-info__talker<> サンプルユーザ
-    %p.message__upper-info__date<> 2019/07/03(Wed) 13:20:27
-  %p.message__text<> サンプル投稿
+- @messages.each do | message |
+  .message
+    .message__upper-info
+      %p.message__upper-info__talker<>
+        = message.user.name
+      %p.message__upper-info__date<> 
+        = message.created_at.strftime("%Y/%m/%d %H:%M")
+    -if message.body.present?
+      %p.message__text<>
+        = message.body
+    = image_tag message.image.url, class: 'message__image' if message.image.present?
