@@ -1,10 +1,13 @@
-.flash-box {
-  width:100vw;
-  color:$white-color;
-  font-size:1rem;
-  font-weight:lighter;
-  text-align:center;
-  .alert{
-    background-color:$flash-box-bkcolor;
+.notification {
+  .notice {
+    background-color: $light_blue;
+    color: $white;
+    text-align: center;
+  }
+
+  .alert {
+    background-color: $alert_orange;
+    color: $white;
+    text-align: center;
   }
 }
