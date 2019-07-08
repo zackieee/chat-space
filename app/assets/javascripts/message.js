@@ -37,12 +37,11 @@ $(document).on('turbolinks:load', function() {
         dataType:     'json',
         processData:  false,
         contentType:  false
-      }, {passive: true})
+      })
       .done(function(data){
         var html = buildHTML(data);
         $('.messages').append(html);
-        $('.input-box__text').val('');
-        $('.input-box__file').val('');
+        $('#new_message')[0].reset();
         scrollBottom();
       })
       .fail(function(){
