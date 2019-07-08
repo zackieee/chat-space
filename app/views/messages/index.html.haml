@@ -13,7 +13,7 @@
       =link_to "/groups/#{@group.id}/edit" do
         .main-header__edit-btn<>Edit
     .messages
-      =render 'messages'
+      =render partial:'messages', locals:{ message: @message}
     .form
       =form_for [@group, @message] do |f| 
         .input-box
