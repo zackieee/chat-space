@@ -25,12 +25,16 @@
         チャットメンバー
     .chat-group-form__field--right
       .chat-group-users.js-add-user
+        .chat-group-user.clearfix.js-chat-member{id: "#{current_user.id}"}
+          = f.hidden_field :user_ids, name:"group[user_ids][]", value:"#{current_user.id}", class:'group[user_ids][]'
+          %p.chat-group-user__name<>
+            = current_user.name
         - @group.users.each do |member|
-          .chat-group-user.clearfix.js-chat-member{id: "#{member.id}"}
-            = f.hidden_field :user_ids, name:"group[user_ids][]", value:"#{member.id}", class:'group[user_ids][]',id:"group_user_ids"
-            %p.chat-group-user__name<>
-              = member.name
-            - if member.id != current_user.id
+          - if member.id != current_user.id
+            .chat-group-user.clearfix.js-chat-member{id: "#{member.id}"}
+              = f.hidden_field :user_ids, name:"group[user_ids][]", value:"#{member.id}", class:'group[user_ids][]'
+              %p.chat-group-user__name<>
+                = member.name
               %a.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn<>
                 削除
   .chat-group-form__field.clearfix

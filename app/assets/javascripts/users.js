@@ -16,40 +16,44 @@ $(document).on('turbolinks:load', function() {
     }
     function appendUser(user){
       var html =`<div class="chat-group-user clearfix js-chat-member" id="${user.userId}">
-                    <input name="group[user_ids][]" value="${user.userId}" class="group[user_ids][]" id="grou_user_ids" type="hidden" >
+                    <input name="group[user_ids][]" value="${user.userId}" class="group[user_ids][]" type="hidden" >
                       <p class="chat-group-user__name">${user.userName}</p>
                       <a class="chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>
                 </div>`
       return html;
+    }
+    function removeResult(){
+      $(".user-search-result").empty();
     }
     $('#user-search-field').on('keyup',function(){
       var href = '/users';
       var input = $.trim($("#user-search-field").val());
       var user_ids = [];
       var userList = $('.js-add-user').children('div');
-      for(var i=0;i < userList.length;i++){
+      for(var i=0;i < userList.length; i++){
         user_ids.push(userList[i].id);
       }
-      $.ajax({
-        url:          href,
-        type:         "GET",
-        data:         {search: input,user_ids: user_ids},
-        dataType:     'json',
-      })
-      .done(function(users){
-        $(".user-search-result").empty();
-        if(users.length !== 0){
-          users.forEach(function(user){
-            appendResult(user);
-          });
-        }
-        else{
-          appendErrMsgToHTML("一致するユーザーが見つかりません")
-        }
-      })
-      .fail(function(){
-        alert('ユーザ検索に失敗しました');
-      })
+      if(input !== ''){
+        $.ajax({
+          url:          href,
+          type:         "GET",
+          data:         {search: input,user_ids: user_ids},
+          dataType:     'json',
+        })
+        .done(function(users){
+          removeResult();
+          if(users.length !== 0){
+            users.forEach(function(user){
+              appendResult(user);
+            });
+          }else{
+            appendErrMsgToHTML("一致するユーザーが見つかりません")
+          }  
+        })
+        .fail(function(){
+          alert('ユーザ検索に失敗しました');
+        })
+      } else removeResult();
     });
     $('.user-search-result').on('click','.chat-group-user__btn--add',function(){
       var user = $(this).data();
