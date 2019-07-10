@@ -22,7 +22,7 @@ $(document).on('turbolinks:load', function() {
                 </div>`
       return html;
     }
-    function removeResult(){
+    function emptyResult(){
       $(".user-search-result").empty();
     }
     $('#user-search-field').on('keyup',function(){
@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', function() {
           dataType:     'json',
         })
         .done(function(users){
-          removeResult();
+          emptyResult();
           if(users.length !== 0){
             users.forEach(function(user){
               appendResult(user);
@@ -53,7 +53,7 @@ $(document).on('turbolinks:load', function() {
         .fail(function(){
           alert('ユーザ検索に失敗しました');
         })
-      } else removeResult();
+      } else emptyResult();
     });
     $('.user-search-result').on('click','.chat-group-user__btn--add',function(){
       var user = $(this).data();
