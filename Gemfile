@@ -79,6 +79,7 @@ gem 'devise'
 # 画像アップロード用
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog-aws'
 
 #デバッグ用
 gem 'pry-rails'
