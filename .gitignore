@@ -22,5 +22,5 @@ public/uploads/*
 # Macフォルダ設定ファイルのため除外
 .DS_Store
 
-#対象外
-config/secrets.yml
+# #対象外
+# config/secrets.yml
