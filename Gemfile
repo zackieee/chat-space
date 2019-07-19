@@ -78,7 +78,7 @@ gem 'devise'
 
 # 画像アップロード用
 gem 'carrierwave'
-gem 'mini_magick'
+gem "mini_magick", ">= 4.9.4"
 gem 'fog-aws'
 
 #デバッグ用
